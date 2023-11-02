@@ -28,15 +28,10 @@ export default class VueSocketIO {
      */
     install(Vue){
 
-        const version = Number(Vue.version.split('.')[0])
+        Vue.config.globalProperties.$socket = this.io;
+        Vue.config.globalProperties.$vueSocketIo = this;
+        Vue.provide('socket', this.io)
 
-        if (version >= 3) {
-            Vue.config.globalProperties.$socket = this.io;
-            Vue.config.globalProperties.$vueSocketIo = this;
-        } else {
-            Vue.prototype.$socket = this.io;
-            Vue.prototype.$vueSocketIo = this;
-        }
 
         Vue.mixin(Mixin);
 
@@ -53,6 +48,7 @@ export default class VueSocketIO {
     connect(connection, options){
 
         if(connection && typeof connection === 'object'){
+            console.log('error', connection, options)
 
             Logger.info('Received socket.io-client instance');
 
@@ -65,7 +61,7 @@ export default class VueSocketIO {
             return this.io = SocketIO(connection, options);
 
         } else {
-
+            console.log('error', connection, options)
             throw new Error('Unsupported connection type');
 
         }

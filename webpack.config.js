@@ -1,5 +1,5 @@
 module.exports = {
-    mode: process.env.NODE_ENV,
+    mode: "none",
     entry: ["./src/index.js"],
     output: {
         library: "VueSocketIO",

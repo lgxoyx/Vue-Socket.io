@@ -5,7 +5,8 @@
   "description": "socket.io implementation for Vue.js and Vuex",
   "main": "dist/vue-socketio.js",
   "scripts": {
-    "build": "webpack --mode=production --progress --hide-modules"
+    "build": "webpack --mode=production --progress --hide-modules",
+    "builddev": "webpack --progress --hide-modules"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/MetinSeylan/Vue-Socket.io",
   "dependencies": {
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
